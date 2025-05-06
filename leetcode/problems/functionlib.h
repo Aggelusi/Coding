@@ -34,4 +34,7 @@ double findMedianSortedArrays(int* nums1, int nums1Size, int* nums2, int nums2Si
 // 5. Given a string s, return the longest palindromic substring in s.
 char* longestPalindrome(char* s);
 
+// 6. Write the string the way it would be spelled in a zigzag
+char* zigzag_convert(char* s, int numRows);
+
 #endif

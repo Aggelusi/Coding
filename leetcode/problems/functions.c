@@ -105,3 +105,72 @@ double findMedianSortedArrays(int* nums1, int nums1Size, int* nums2, int nums2Si
     
 }
 
+char *longestPalindrome(char *s) {
+    int len = strlen(s);
+    if (len == 0) return strdup(""); // Handle empty string
+
+    int start = 0, max_len = 1;
+
+    for (int i = 0; i < len; ++i) {
+        // Odd-length
+        int l = i, r = i;
+        while (l >= 0 && r < len && s[l] == s[r]) {
+            if (r - l + 1 > max_len) {
+                start = l;
+                max_len = r - l + 1;
+            }
+            l--;
+            r++;
+        }
+
+        // Even-length
+        l = i;
+        r = i + 1;
+        while (l >= 0 && r < len && s[l] == s[r]) {
+            if (r - l + 1 > max_len) {
+                start = l;
+                max_len = r - l + 1;
+            }
+            l--;
+            r++;
+        }
+    }
+
+    char *result = malloc(max_len + 1);
+    if (!result) return NULL; // Allocation failure
+    strncpy(result, s + start, max_len);
+    result[max_len] = '\0';
+    return result;
+}
+
+char* zigzag_convert(char* s, int numRows) {
+    int len = strlen(s);
+    if (numRows == 1 || numRows >= len) return s;
+
+    int cycle = 2 * numRows - 2;
+    char* result = (char*)malloc(len + 1);
+    int pos = 0;
+
+    for (int row = 0; row < numRows; row++) {
+        int j = row;
+        while (j < len) {
+            result[pos++] = s[j];
+
+            int step1 = cycle - 2 * row;
+            int step2 = 2 * row;
+
+            // For middle rows, take the diagonal char too
+            if (row != 0 && row != numRows - 1) {
+                j += step1;
+                if (j < len) result[pos++] = s[j];
+                j += step2;
+            } else {
+                j += cycle;
+            }
+        }
+    }
+
+    result[pos] = '\0';
+    return result;
+}
+
