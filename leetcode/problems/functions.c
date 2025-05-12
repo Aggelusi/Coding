@@ -174,3 +174,40 @@ char* zigzag_convert(char* s, int numRows) {
     return result;
 }
 
+int reverse(int x){
+    int reversed = 0;
+
+    while (x != 0) {
+        int digit = x % 10;
+        x /= 10;
+
+        // Check for overflow before it happens
+        if (reversed > INT_MAX / 10 || (reversed == INT_MAX / 10 && digit > 7)) {
+            printf("Overflow detected (positive side)\n");
+            return 0;
+        }
+        if (reversed < INT_MIN / 10 || (reversed == INT_MIN / 10 && digit < -8)) {
+            printf("Overflow detected (negative side)\n");
+            return 0;
+        }
+
+        reversed = reversed * 10 + digit;
+    }
+
+    return reversed;
+}
+
+bool isPalindrome(int x) {
+    if (x < 0 || (x % 10 == 0 && x != 0)) return false;
+
+    int reversedHalf = 0;
+    while (x > reversedHalf) {
+        reversedHalf = reversedHalf * 10 + x % 10;
+        x /= 10;
+    }
+
+    // For even and odd digit counts
+    return (x == reversedHalf || x == reversedHalf / 10);
+}
+
+

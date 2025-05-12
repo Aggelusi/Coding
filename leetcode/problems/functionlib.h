@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <math.h>
+#include <limits.h>
 
 // DATA STRUCTURES
 struct ListNode {
@@ -36,5 +37,10 @@ char* longestPalindrome(char* s);
 
 // 6. Write the string the way it would be spelled in a zigzag
 char* zigzag_convert(char* s, int numRows);
+
+// 9. Given an integer x, return true if x is a palindrome, and false otherwise.
+bool isPalindrome(int x);
+
+// 9. 
 
 #endif
