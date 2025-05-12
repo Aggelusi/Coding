@@ -174,3 +174,25 @@ char* zigzag_convert(char* s, int numRows) {
     return result;
 }
 
+int reverse_integer_32(int x) {
+    int reversed = 0;
+
+    while (x != 0) {
+        int digit = x % 10;
+        x /= 10;
+
+        // Check for overflow before it happens
+        if (reversed > INT_MAX / 10 || (reversed == INT_MAX / 10 && digit > 7)) {
+            printf("Overflow detected (positive side)\n");
+            return 0;
+        }
+        if (reversed < INT_MIN / 10 || (reversed == INT_MIN / 10 && digit < -8)) {
+            printf("Overflow detected (negative side)\n");
+            return 0;
+        }
+
+        reversed = reversed * 10 + digit;
+    }
+
+    return reversed;
+}

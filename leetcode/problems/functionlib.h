@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <math.h>
+#include <limits.h>
 
 // DATA STRUCTURES
 struct ListNode {
@@ -36,5 +37,9 @@ char* longestPalindrome(char* s);
 
 // 6. Write the string the way it would be spelled in a zigzag
 char* zigzag_convert(char* s, int numRows);
+
+// 7. Given a signed 32-bit integer x, return x with its digits reversed. 
+// If reversing x causes the value to go outside the signed 32-bit integer range, then return 0.
+int reverse_integer_32(int x);
 
 #endif
