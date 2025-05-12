@@ -174,7 +174,11 @@ char* zigzag_convert(char* s, int numRows) {
     return result;
 }
 
+<<<<<<< HEAD
 int reverse_integer_32(int x) {
+=======
+int reverse(int x){
+>>>>>>> f8b3e6ac5502f64dece2406f9f432465c214faf6
     int reversed = 0;
 
     while (x != 0) {
@@ -196,3 +200,21 @@ int reverse_integer_32(int x) {
 
     return reversed;
 }
+<<<<<<< HEAD
+=======
+
+bool isPalindrome(int x) {
+    if (x < 0 || (x % 10 == 0 && x != 0)) return false;
+
+    int reversedHalf = 0;
+    while (x > reversedHalf) {
+        reversedHalf = reversedHalf * 10 + x % 10;
+        x /= 10;
+    }
+
+    // For even and odd digit counts
+    return (x == reversedHalf || x == reversedHalf / 10);
+}
+
+
+>>>>>>> f8b3e6ac5502f64dece2406f9f432465c214faf6

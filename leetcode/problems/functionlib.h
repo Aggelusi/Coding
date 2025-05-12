@@ -38,8 +38,15 @@ char* longestPalindrome(char* s);
 // 6. Write the string the way it would be spelled in a zigzag
 char* zigzag_convert(char* s, int numRows);
 
+<<<<<<< HEAD
 // 7. Given a signed 32-bit integer x, return x with its digits reversed. 
 // If reversing x causes the value to go outside the signed 32-bit integer range, then return 0.
 int reverse_integer_32(int x);
+=======
+// 9. Given an integer x, return true if x is a palindrome, and false otherwise.
+bool isPalindrome(int x);
+
+// 9. 
+>>>>>>> f8b3e6ac5502f64dece2406f9f432465c214faf6
 
 #endif
